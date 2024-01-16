@@ -6,13 +6,13 @@
 /*   By: hrahovha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 12:41:59 by hrahovha          #+#    #+#             */
-/*   Updated: 2023/03/25 12:42:10 by hrahovha         ###   ########.fr       */
+/*   Updated: 2024/01/16 22:51:33 by hrahovha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void	loot_dcoin_l(t_list *game, int i, int j)
+void	loot_dcoin_l(t_game *game, int i, int j)
 {
 	empty(game, i, j + 1);
 	game->map[i][j] = '7';
@@ -25,7 +25,7 @@ void	loot_dcoin_l(t_list *game, int i, int j)
 		game->mlx_win, game->g_l2, j * 64, i * 64);
 }
 
-void	loot_coin_l(t_list *game, int i, int j)
+void	loot_coin_l(t_game *game, int i, int j)
 {
 	game->p_y = j;
 	if (game->map[i][j + 1] == '7' && game->map[i][j] == 'C')
@@ -54,7 +54,7 @@ void	loot_coin_l(t_list *game, int i, int j)
 	}
 }
 
-void	move_left(t_list *game, int i, int j)
+void	move_left(t_game *game, int i, int j)
 {
 	j -= 1;
 	if (game->map[i][j] == 'N' || (game->map[i][j] == 'E'

@@ -6,13 +6,13 @@
 /*   By: hrahovha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 16:35:30 by hrahovha          #+#    #+#             */
-/*   Updated: 2023/03/18 19:37:26 by hrahovha         ###   ########.fr       */
+/*   Updated: 2024/01/16 23:34:52 by hrahovha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-int	map_valid(t_list *game, char **map, int i, int j)
+int	map_valid(t_game *game, char **map, int i, int j)
 {
 	char	s[1];
 
@@ -38,7 +38,7 @@ int	map_valid(t_list *game, char **map, int i, int j)
 	return (1);
 }
 
-int	map_components(char **map, int i, int j, t_list *game)
+int	map_components(char **map, int i, int j, t_game *game)
 {
 	int	sym[3];
 
@@ -93,7 +93,7 @@ int	map_walls(char **map, int i, int j)
 	return (1);
 }
 
-int	check_map(char **map, t_list *game)
+int	check_map(char **map, t_game *game)
 {
 	if (!map_walls(map, -1, 0))
 		return (0);
@@ -106,7 +106,7 @@ int	check_map(char **map, t_list *game)
 	return (1);
 }
 
-int	check_all(int argc, char **argv, t_list *game)
+int	check_all(int argc, char **argv, t_game *game)
 {
 	if (argc != 2)
 		return (ft_error_print("ERROR - Wrong number of parameters"));

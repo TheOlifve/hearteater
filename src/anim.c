@@ -6,13 +6,13 @@
 /*   By: hrahovha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 11:51:46 by hrahovha          #+#    #+#             */
-/*   Updated: 2023/03/26 11:52:00 by hrahovha         ###   ########.fr       */
+/*   Updated: 2024/01/16 22:51:33 by hrahovha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-int	d_anim(t_list *game, int k)
+int	d_anim(t_game *game, int k)
 {
 	if (k <= 1000)
 		game->door = game->door7;
@@ -33,7 +33,7 @@ int	d_anim(t_list *game, int k)
 	return (k);
 }
 
-int	anim(t_list *game)
+int	anim(t_game *game)
 {
 	static int	k;
 	int			i;

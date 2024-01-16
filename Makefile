@@ -5,62 +5,43 @@
 #                                                     +:+ +:+         +:+      #
 #    By: hrahovha <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/03/13 16:30:24 by hrahovha          #+#    #+#              #
-#    Updated: 2023/03/19 18:36:15 by hrahovha         ###   ########.fr        #
+#    Created: 2024/01/16 16:27:45 by hrahovha          #+#    #+#              #
+#    Updated: 2024/01/16 23:01:37 by hrahovha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 
-CC = cc
-
-SRC = 	src/main.c						\
-		src/anim.c						\
-		src/check.c						\
-		src/check2.c					\
-		src/door.c						\
-		src/empty.c						\
-		src/ft_error_print.c			\
-		src/girl.c						\
-		src/map.c						\
-		src/logic.c						\
-		src/move_d.c					\
-		src/move_l.c					\
-		src/move_r.c					\
-		src/move_u.c					\
-		src/player_move.c				\
-		src/walls.c						\
-		src/win.c						\
-		utils/ft_strlen.c				\
-		utils/ft_strdup.c				\
-		utils/ft_memset.c				\
-		utils/ft_split.c				\
-		utils/ft_substr.c				\
-		utils/ft_itoa.c					\
-		utils/ft_atoi.c					\
-		utils/ft_printf.c				\
-		utils/ft_strchr.c				\
-		utils/ft_strjoin.c				\
-		utils/ft_strrncmp.c				\
-		utils/get_next_line.c			\
-
-OBJ = $(SRC:.c=.o)
+GCC = gcc
 
 CFLAGS = -Wall -Wextra -Werror
+IFLAGS = -Ilibs/mlx -Ilibs/libft/libft.a -Iinclude
+LFLAGS = -Llibs/libft -lft -Llibs/mlx -lmlx -framework OpenGL -framework AppKit
+
+SRCDIR = src
+OBJDIR = obj
+
+SRCS = $(wildcard $(SRCDIR)/*.c)
+OBJS = $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(SRCS))
+
+$(OBJDIR)/%.o: $(SRCDIR)/%.c
+	@mkdir -p $(OBJDIR)
+	$(GCC) $(CFLAGS) $(IFLAGS) -c $< -o $@
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -lmlx -framework OpenGL -framework AppKit -o $(NAME)
-
-%.o: %.c
-	$(CC) -c $(CFLAGS) -Imlx $< -o $@
+$(NAME): $(OBJS)
+	make -s -C ./libs/libft
+	make -s -C ./libs/mlx
+	$(GCC) $(CFLAGS) $(IFLAGS) $(OBJS) -o $(NAME) $(LFLAGS)
 
 fclean: clean
 	rm -rf $(NAME)
 
 clean:
-	rm -rf $(OBJ)
+	@make clean -C ./libs/libft
+	@make clean -C ./libs/mlx
+	rm -rf $(OBJDIR)
 
 re: fclean all
 

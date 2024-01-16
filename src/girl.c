@@ -6,13 +6,13 @@
 /*   By: hrahovha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 11:24:03 by hrahovha          #+#    #+#             */
-/*   Updated: 2023/03/23 11:24:08 by hrahovha         ###   ########.fr       */
+/*   Updated: 2024/01/16 22:51:33 by hrahovha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void	girl_add(t_list *game)
+void	girl_add(t_game *game)
 {
 	int	i;
 	int	j;
@@ -35,7 +35,7 @@ void	girl_add(t_list *game)
 			"sprites/walls/flw.xpm", &i, &j);
 }
 
-void	girl_render(t_list *game)
+void	girl_render(t_game *game)
 {
 	int	i;
 	int	j;

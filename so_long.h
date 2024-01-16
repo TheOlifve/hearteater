@@ -6,7 +6,7 @@
 /*   By: hrahovha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 00:03:31 by hrahovha          #+#    #+#             */
-/*   Updated: 2023/03/22 16:30:18 by hrahovha         ###   ########.fr       */
+/*   Updated: 2024/01/16 22:51:49 by hrahovha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@
 # include <signal.h>
 # include <stdio.h>
 # include <string.h>
-# include "./utils/utils.h"
-# include "./minilibx/mlx.h"
+# include "./libs/libft/libft.h"
+# include "./libs/mlx/mlx.h"
 
-typedef struct s_list {
+typedef struct s_gmae {
 	void	*mlx;
 	void	*mlx_win;
 	int		player_pid;
@@ -70,28 +70,28 @@ typedef struct s_list {
 	void	*wall_ul;
 	void	*wall_ur;
 	void	*exit;
-}				t_list;
+}				t_game;
 
-int		ft_exit(t_list *game);
-int		check_all(int argc, char **argv, t_list *game);
+int		ft_exit(t_game *game);
+int		check_all(int argc, char **argv, t_game *game);
 int		ft_error_print(char *str);
-int		map_r(char *file, t_list *game);
-void	door(t_list *game);
+int		map_r(char *file, t_game *game);
+void	door(t_game *game);
 int		map_line_len(char **map, int len);
-void	win_size(t_list *game);
-void	img_add(t_list *game);
-void	empty(t_list *game, int i, int j);
+void	win_size(t_game *game);
+void	img_add(t_game *game);
+void	empty(t_game *game, int i, int j);
 int		map_cut(char *map);
-void	wall(t_list *game, int i, int j);
-void	girl_render(t_list *game);
-int		key_press(int key, t_list *game);
-void	move_right(t_list *game, int i, int j);
-void	move_left(t_list *game, int i, int j);
-void	move_up(t_list *game, int i, int j);
-void	move_down(t_list *game, int i, int j);
-void	draw_text(t_list *game);
-void	wall_add(t_list *game);
-int		anim(t_list *game);
-int		logic(t_list *game);
+void	wall(t_game *game, int i, int j);
+void	girl_render(t_game *game);
+int		key_press(int key, t_game *game);
+void	move_right(t_game *game, int i, int j);
+void	move_left(t_game *game, int i, int j);
+void	move_up(t_game *game, int i, int j);
+void	move_down(t_game *game, int i, int j);
+void	draw_text(t_game *game);
+void	wall_add(t_game *game);
+int		anim(t_game *game);
+int		logic(t_game *game);
 
 #endif

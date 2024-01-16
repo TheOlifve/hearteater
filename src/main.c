@@ -6,13 +6,13 @@
 /*   By: hrahovha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 19:47:25 by hrahovha          #+#    #+#             */
-/*   Updated: 2023/03/22 16:52:31 by hrahovha         ###   ########.fr       */
+/*   Updated: 2024/01/16 22:51:33 by hrahovha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-int	ft_exit(t_list *game)
+int	ft_exit(t_game *game)
 {
 	int	i;
 
@@ -29,7 +29,7 @@ int	ft_exit(t_list *game)
 	return (EXIT_SUCCESS);
 }
 
-static void	audio_init(t_list *game)
+static void	audio_init(t_game *game)
 {
 	const char	*audio[] = {AUDIO, "./sprites/girl/hearteater.wav", NULL};
 
@@ -40,9 +40,9 @@ static void	audio_init(t_list *game)
 
 int	main(int argc, char **argv)
 {
-	t_list	game;
+	t_game	game;
 
-	ft_memset(&game, 0, sizeof(t_list));
+	ft_memset(&game, 0, sizeof(t_game));
 	if (!(check_all(argc, argv, &game)))
 		return (0);
 	audio_init(&game);

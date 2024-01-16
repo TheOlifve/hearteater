@@ -12,7 +12,7 @@
 
 #include "../so_long.h"
 
-void	mb(t_list *game, int i, int j)
+void	mb(t_game *game, int i, int j)
 {
 	int	x;
 	int	y;
@@ -38,7 +38,7 @@ void	mb(t_list *game, int i, int j)
 	}
 }
 
-void	wall_add(t_list *game)
+void	wall_add(t_game *game)
 {
 	int	i;
 	int	j;
@@ -63,7 +63,7 @@ void	wall_add(t_list *game)
 			"sprites/walls/wall_ur.xpm", &i, &j);
 }
 
-void	wall_render(t_list *game, int i, int j, int k)
+void	wall_render(t_game *game, int i, int j, int k)
 {
 	girl_render(game);
 	mlx_put_image_to_window(game->mlx,
@@ -91,7 +91,7 @@ void	wall_render(t_list *game, int i, int j, int k)
 	}
 }
 
-void	wall(t_list *game, int i, int j)
+void	wall(t_game *game, int i, int j)
 {
 	int	x;
 	int	y;

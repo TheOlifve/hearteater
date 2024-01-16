@@ -6,13 +6,13 @@
 /*   By: hrahovha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 15:35:30 by hrahovha          #+#    #+#             */
-/*   Updated: 2023/03/23 15:35:34 by hrahovha         ###   ########.fr       */
+/*   Updated: 2024/01/16 22:51:33 by hrahovha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void	draw_text(t_list *game)
+void	draw_text(t_game *game)
 {
 	char	*str;
 	int		i;
@@ -35,7 +35,7 @@ void	draw_text(t_list *game)
 	free(str);
 }
 
-int	key_press(int key, t_list *game)
+int	key_press(int key, t_game *game)
 {
 	int	i;
 	int	j;

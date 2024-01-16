@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   logic.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rugrigor <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: hrahovha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 19:37:20 by rugrigor          #+#    #+#             */
-/*   Updated: 2023/03/27 19:37:24 by rugrigor         ###   ########.fr       */
+/*   Updated: 2024/01/16 22:51:33 by hrahovha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void	flood_fill(t_list *game, char **map, int x, int y)
+void	flood_fill(t_game *game, char **map, int x, int y)
 {
 	if (map[x][y] == '1' || map[x][y] == 'N' || x < 1 || y < 1
 		|| y > game->win_width || x > game->win_height)
@@ -24,7 +24,7 @@ void	flood_fill(t_list *game, char **map, int x, int y)
 	flood_fill(game, map, x, y + 1);
 }
 
-int	logic(t_list *game)
+int	logic(t_game *game)
 {
 	int	x;
 	int	y;

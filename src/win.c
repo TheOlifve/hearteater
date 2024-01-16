@@ -6,13 +6,13 @@
 /*   By: hrahovha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 16:04:20 by hrahovha          #+#    #+#             */
-/*   Updated: 2023/03/18 20:52:44 by hrahovha         ###   ########.fr       */
+/*   Updated: 2024/01/16 22:51:33 by hrahovha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void	win_size(t_list *game)
+void	win_size(t_game *game)
 {
 	char	**map;
 	int		i;
